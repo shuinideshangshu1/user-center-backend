@@ -4,8 +4,7 @@ create table user
         primary key,
     username     varchar(256)                       null,
     userAccount  varchar(256)                       null,
-    avatarUrl    varchar(1024)                      null,
-    gender       tinyint                            null,
+    gender       varchar(4)                            null,
     userPassword varchar(512)                       not null,
     phone        varchar(128)                       null,
     email        varchar(512)                       null,
@@ -15,6 +14,5 @@ create table user
     idDelete     tinyint  default 0                 not null,
     userRole     int      default 0                 not null comment '用户角色 0 普通用户
 	1 管理员',
-    planetCode   varchar(512)                       null
 )
     comment '用户';
