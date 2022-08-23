@@ -51,7 +51,7 @@ public class UserController {
         String gender = baseSettingRequest.getGender();
         String phone = baseSettingRequest.getPhone();
         String email = baseSettingRequest.getEmail();
-        if (gender.equals("男")||gender.equals("女")){
+        if (gender==null||gender.equals("男")||gender.equals("女")){
             Boolean result = userService.baseSetting(request,username,gender,phone,email);
             return ResultUtils.success(result);
 
@@ -94,9 +94,6 @@ public class UserController {
     }
     @GetMapping("/search")
     public BaseResponse<List<User>> searchUsers(String username, HttpServletRequest request){
-        if (!isAdmin(request)){
-            throw new BusinessException(ErrorCode.PARAMS_ERROR);
-        }
         QueryWrapper<User> queryWrapper=new QueryWrapper<>();
         if (StringUtils.isNotBlank(username)){
             queryWrapper.like("username",username);

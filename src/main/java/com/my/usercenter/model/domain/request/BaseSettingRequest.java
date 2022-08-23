@@ -8,5 +8,4 @@ public class BaseSettingRequest {
     private String gender;
     private String phone;
     private String email;
-    private String avatarUrl;
 }
